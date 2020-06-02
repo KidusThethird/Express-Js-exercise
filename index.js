@@ -4,6 +4,8 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
 const dishRouter = require('./routes/dishRouter');
+const leaders = require('./routes/leaders');
+const promotions = require('./routes/promotions');
 
 const hostname = 'localhost';
 const port = 3000;
@@ -23,12 +25,27 @@ app.all('/dishes', (req,res,next)=>{
 });
 
 
+app.use('/leaders', leaders);
+app.all('/leaders', (req,res,next)=>{
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    next();
 
-/////////////////////////start
+});
+
+
+app.use('/promotions', promotions);
+app.all('/promotions', (req,res,next)=>{
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    next();
+
+});
 
 
 
-//////////////////////////end
+
+
 
 
 app.use(express.static(__dirname + '/public'));

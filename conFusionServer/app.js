@@ -7,8 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var dishRouter = require('./routes/dishRouter');
-var promotions = require('./routes/promotions');
-var leaders = require('./routes/leaders');
+var promotions = require('./routes/promotionsRouter');
+var leaders = require('./routes/leadersRouter');
 
 const mongoose = require('mongoose');
 
